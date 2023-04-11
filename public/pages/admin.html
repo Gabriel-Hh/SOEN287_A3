@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta 
+		name="viewport" 
+		content="charset=UTF-8, width=device-width, initial-scale=1"
+	/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>
+		Admin - Gabriel's Website
+	</title>
+</head>
+<body>
+	<!-- Top banner -->
+	<div class="banner">
+		<h1>Admin</h1>
+	</div>
+	<div class="menu"> 	
+		<table> 		
+			<tr>
+				<td><a href="index.html">Home</a></td>
+				<td><a href="resume.html">Resume</a></td>
+				<td><a href="projects.html">Projects</a></td>
+				<td><a href="contact.html">Contact</a></td>
+				<td><a href="social.html">Social</a></td>
+				<td><a href="admin.html">Admin</a></td>
+			</tr>
+		</table>
+	</div>
+
+<!-- Rest of webpage -->
+	<div class="content">
+		<div class="hidden" style="background-color: yellow;">
+			<p>
+				(i) A user-name field, using the &lt;input&gt; tag, which must be justify-aligned with respect to the webpage layout (0.5 points).
+			</p>
+			<p>
+				(ii) An password field, using the &lt;input&gt; tag, which must be justify-aligned with respect to the layout of the webpage (0.5 points).
+			</p>
+			<p>
+				(iii) A conspicuous button, strictly using the &lt;input&gt; tag, which must be center-aligned with respect to the aforementioned user-name and password fields (1.5 points).
+			</p>
+		</div>
+		<h3><u>Admin Portal</u></h3>
+		<p>
+			Log-in to:
+		</p>
+		<ul>
+			<li>
+				Access website source files
+			</li>
+			<li>
+				Test out my Database UI 
+			</li>
+		</ul>
+		<p>
+			Use username: 'guest' for acces
+		</p>
+		<form id="admin_form" action="">
+			<table id="admin_table" style="width:180px; text-align: justify;">
+				<tr><td>
+				<label for="admin_uname">Username</label>
+				<input type="text" id="admin_uname"/>
+				<!-- HTML 5
+					<input type="text" name="uname" placeholder="username"/> 
+				-->
+				</td></tr>
+				<tr><td>
+				<label for="admin_pass">Password</label>
+				<input type="password" id="admin_pass"/>
+				<!-- HTML 5
+					<input type="password" name="pass" placeholder="password"/> 
+				-->
+				</td></tr>
+				<tr style="text-align: center;"><td>
+				<input type="button" value="Submit"/>
+				</td></tr>
+			</table>
+		</form>
+		<p style="color: red">
+			(Coming Soon)
+		</p>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>
+		Admin Projects - Gabriel's Website
+	</title>
+
+	<script type="text/javascript">
+
+		function submitProjects(event){
+			event.preventDefault();
+			
+			elementValue2File("projects");
+
+			return false;
+		}
+	</script>
+
+	<script type="text/javascript" src="elementValue2File.js"></script>
+
+</head>
+<body>
+	<!-- Top banner -->
+	<div class="banner">
+		<h1>Admin - Projects</h1>
+	</div> 
+	<div class="menu">	
+		<table> 		
+			<tr>
+				<td><a href="adminIndex.html">Home</a></td>
+				<td><a href="adminResume.html">Resume</a></td>
+				<td><a href="adminProjects.html">Projects</a></td>
+				<td><a href="adminContact.html">Contact</a></td>
+				<td><a href="adminSocial.html">Social</a></td>
+				<td><a href="adminLogout.html">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="content">
+		<br/>
+		<form onsubmit="return submitProjects(event)" action="#">
+			<p>
+				<label for="projects">My Projects</label>
+				<br/>
+				<textarea 
+				id="projects" 
+				name="projects" 
+				rows="30" cols="80"
+				></textarea>
+			</p>
+
+			<input type="submit" value="Submit"/>
+		</form>
+		<br/>
+		<br/>
+	</div>
+
+</body>
+</html>

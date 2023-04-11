@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>
+		Admin Resume - Gabriel's Website
+	</title>
+
+	<script type="text/javascript">
+
+		function submitResume(event){
+			event.preventDefault();
+			
+			elementValue2File("education");
+			elementValue2File("skills");
+			elementValue2File("awards");
+			elementValue2File("work");
+			elementValue2File("referees");
+			return false;
+		}
+	</script>
+
+	<script type="text/javascript" src="elementValue2File.js"></script>
+
+</head>
+<body>
+	<!-- Top banner -->
+	<div class="banner">
+		<h1>Admin - Resume</h1>
+	</div> 
+	<div class="menu">	
+		<table> 		
+			<tr>
+				<td><a href="adminIndex.html">Home</a></td>
+				<td><a href="adminResume.html">Resume</a></td>
+				<td><a href="adminProjects.html">Projects</a></td>
+				<td><a href="adminContact.html">Contact</a></td>
+				<td><a href="adminSocial.html">Social</a></td>
+				<td><a href="adminLogout.html">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="content">
+		<br/>
+		<form onsubmit="return submitResume(event)" action="#">
+			<p>
+				<label for="education">Educational Qualifications</label>
+				<br/>
+				<textarea 
+				id="education" 
+				name="education" 
+				rows="10" cols="80"
+				></textarea>
+			</p>
+			<p>
+				<label for="skills">Skill Set</label>
+				<br/>
+				<textarea 
+				id="skills" 
+				name="skills" 
+				rows="20" 
+				cols="80"
+				></textarea>
+			</p>
+			<p>
+				<label for="awards">Award / Recognitions</label>
+				<br/>
+				<textarea 
+				id="awards" 
+				name="awards" 
+				rows="10" 
+				cols="80"
+				></textarea>
+			</p>
+			<p>
+				<label for="work">Work Experience</label>
+				<br/>
+				<textarea 
+				id="work" 
+				name="work" 
+				rows="30" 
+				cols="80"
+				></textarea>
+			</p>
+			<p>
+				<label for="referees">Referees</label>
+				<br/>
+				<textarea 
+				id="referees" 
+				name="referees" 
+				rows="6" 
+				cols="80"
+				></textarea>
+			</p>
+
+			<input type="submit" value="Submit"/>
+		</form>
+		<br/>
+		<br/>
+	</div>
+
+</body>
+</html>

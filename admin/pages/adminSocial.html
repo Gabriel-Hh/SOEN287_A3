@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>
+		Admin Social - Gabriel's Website
+	</title>
+
+	<script type="text/javascript">
+
+		function submitSocial(event){
+			event.preventDefault();
+			
+			elementValue2File("social1");
+			elementValue2File("social2");
+			elementValue2File("social3");
+			return false;
+		}
+	</script>
+
+	<script type="text/javascript" src="elementValue2File.js"></script>
+
+</head>
+<body>
+	<!-- Top banner -->
+	<div class="banner">
+		<h1>Admin - Social</h1>
+	</div> 
+	<div class="menu">	
+		<table> 		
+			<tr>
+				<td><a href="adminIndex.html">Home</a></td>
+				<td><a href="adminResume.html">Resume</a></td>
+				<td><a href="adminProjects.html">Projects</a></td>
+				<td><a href="adminContact.html">Contact</a></td>
+				<td><a href="adminSocial.html">Social</a></td>
+				<td><a href="adminLogout.html">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="content">
+		<br/>
+		<form onsubmit="return submitSocial(event)" action="#">
+			<p>
+				<label for="social1">Social Link 1</label>
+				<br/>
+				<input id="social1" type="text" />
+			</p>
+			<p>
+				<label for="social2">Social Link 2</label>
+				<br/>
+				<input id="social2" type="text" />
+			</p>
+			<p>
+				<label for="social3">Social Link 3</label>
+				<br/>
+				<input id="social3" type="text" />
+			</p>
+
+			<input type="submit" value="Submit"/>
+		</form>
+		<br/>
+		<br/>
+	</div>
+
+</body>
+</html>

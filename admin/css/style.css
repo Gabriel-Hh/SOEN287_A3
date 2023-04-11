@@ -1,0 +1,71 @@
+body{
+	font-family: sans-serif, arial;
+}
+
+.banner {
+	background-color: #008B8B;
+	padding: 15px;
+	margin: 0px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.banner h1{
+	color: white;
+	text-align: center;
+}
+
+.menu {
+	background-color: lightblue;
+	width: 100%;
+	position: fixed;
+	top: 109px;
+	left: 0;
+	z-index: 1;
+}
+
+.menu table{
+	margin: auto;
+	width: 57%;
+	border-spacing: 0;
+}
+.menu td{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.menu a{
+	display: block; /* makes entire table clickable as href */
+	width: 100%;
+	height: 100%;
+	color: #551A8B; /* HTML5 'visited' color */
+	text-decoration: none;
+	padding: 7px;
+}
+
+
+.menu a:hover{
+	color:white;
+	background-color: #6082B6;
+}
+ 
+.content{
+	position: relative ;
+	top: 134px;
+	left: 0;
+
+}
+
+.content label{
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.hidden
+{
+	display: none;
+}
