@@ -1,5 +1,5 @@
 <?php
-// Return raw content from file
+// Return raw content from file. used for paragraphs, divs and all of the admin pages.
 function getContent($filename) {
     $filepath = "../text_files/$filename";
     $content = file_get_contents($filepath);
