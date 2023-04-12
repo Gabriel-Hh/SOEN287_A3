@@ -1,6 +1,7 @@
 <?php
 require_once 'functions.php';
 
+// Parse action from GET or POST
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } elseif (isset($_POST['action'])) {
@@ -9,19 +10,29 @@ if (isset($_GET['action'])) {
     $action = '';
 }
 
-
+// Handle action
 switch ($action) {
+    //GET request: get content
     case 'get':
         $file = isset($_GET['file']) ? $_GET['file'] : '';
         $type = isset($_GET['type']) ? $_GET['type'] : '';
 
+        // Format content based element type
         switch ($type) {
+            // No formatting needed for div, input, and textarea
             case 'div':
-                echo getDivContent($file);
+            case 'input':
+            case 'textarea':
+                echo getContent($file);
                 break;
-
+            // List formatting for ol and ul
             case 'ol':
-                echo getOrderedListContent($file);
+            case 'ul':
+                echo getListContent($file);
+                break;
+            // Data definition formatting
+            case 'dl':
+                echo getDataDefinitionContent($file);
                 break;
 
             // Add more cases for other content types (ul, dl, etc.)
@@ -31,16 +42,17 @@ switch ($action) {
                 echo 'Invalid content type';
                 break;  
         }
+    //GET request: revert content
+    case 'revert':
+        $file = isset($_GET['file']) ? $_GET['file'] : '';
+        echo revertContent($file);
+        break;
 
+    //POST request: update content
     case 'update':
         $file = isset($_POST['file']) ? $_POST['file'] : '';
         $content = isset($_POST['content']) ? $_POST['content'] : '';
         echo updateContent($file, $content);
-        break;
-
-    case 'revert':
-        $file = isset($_GET['file']) ? $_GET['file'] : '';
-        echo revertContent($file);
         break;
 
     default:
