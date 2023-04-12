@@ -40,9 +40,11 @@ switch ($action) {
 
             default:
                 http_response_code(400);
-                echo 'Invalid content type';
+                echo 'Invalid content type :' . $type;
                 break;  
         }
+        break; 
+
     //GET request: revert content
     case 'revert':
         $file = isset($_GET['file']) ? $_GET['file'] : '';

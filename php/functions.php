@@ -40,5 +40,30 @@ function getDataDefinitionContent($filename) {
 
     return $output;
 }
+// Revert content from backup file and loads .bak file into current text file
+function revertContent($filename) {
+    $filepath = "../text_files/$filename";
+    $backupPath = "../text_files/$filename".".bak";
+    // Revert backup
+    copy($backupPath, $filepath);
+    // Return content from backup file
+    $content = file_get_contents($filepath);
+    return $content;
+}
+
+
+
+// Update content in file
+function updateContent($filename, $content) {
+    $filepath = "../text_files/$filename";
+    $backupPath = "../text_files/$filename".".bak";
+// Backup file  
+    copy($filepath, $backupPath);
+    // Overwrite new content to file
+    $file = fopen($filepath, 'w');
+    fwrite($file, $content);
+    fclose($file);
+    return $content;
+}
 
 ?>

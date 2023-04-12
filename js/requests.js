@@ -3,7 +3,7 @@
 function getContent(element) {
     const elementId = element.id;
     const filename = elementId + '.txt';
-    const contentType = element.tagName;
+    const contentType = element.tagName.toLowerCase();
 
     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
         .then(response => response.text())
