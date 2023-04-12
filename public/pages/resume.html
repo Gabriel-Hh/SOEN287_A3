@@ -37,6 +37,7 @@
 	<!-- Rest of webpage -->
 	<div class="content" style="text-align: left;">
 		<br/>
+		<!-- HIDDEN -->
 		<div class="hidden" id="resume_desc" style="background-color: yellow;">
 			<p>
 			(i) A chronological list depicting your education and the respective qualification(s) obtained, using at least the &lt;dl&gt; tag, which must be left-aligned with respect to the webpage layout (1 points).
@@ -57,8 +58,9 @@
 			(vi) A conspicuous button labeled: “Download Full CV” (0.5 point).
 			</p>
 		</div>
-
+		<!-- Resume -->
 		<div id="resume">
+			<!-- Education -->
 			<h2 style="text-align: center;">Education</h2>
 			<dl>
 				<dt><em>
@@ -80,6 +82,7 @@
 					College Lionel-Groulx, Terrebonne, Canada
 				</em></dt>
 			</dl>
+			<!-- Skills -->
 			<h2 style="text-align: center;">Skills</h2>
 			<div style="display: flex; width: 100%; flex-direction: row; justify-content: space-around; align-items: baseline;" >
 			<div>
@@ -97,6 +100,7 @@
 					<dd>• Java</dd>
 					<dd>• Python</dd>
 					<dd>• SQL</dd>
+					<dd>• PHP</dd>
 					<dd>• HTML</dd>
 					<dd>• CSS</dd>
 					<dd>• JavaScript</dd>
@@ -111,13 +115,14 @@
 				</dl>
 			</div>
 		</div>
+			<!-- Awards -->
 		<div>
 			<h2 style="text-align: center;">Awards &amp; Recognitions</h2>
-			<ol>
-				<li>Award </li>
-				<li>Award </li>
+			<ol id="awards" class="onload">
+				<li>First Award #1 </li>
+				<li>Second Award </li>
 				<li>Recognition wow</li>
-				<li>Award </li>
+				<li>Last Award </li>
 			</ol>
 		</div>
 		<div>
@@ -141,7 +146,7 @@
 					<p><em><b>Assistant Head Rigger &amp; Head Rigger by Interim</b>
 					<span style="float: right;">2014 - 2016</span>
 					<br/>
-					La TOHU – Cite des Arts de Cirque, Montréal, QC
+					La TOHU - Cite des Arts de Cirque, Montréal, QC
 					</em></p>
 				</li>
 				<li>
@@ -153,7 +158,7 @@
 				</li>
 			</ol>
 			<h2 style="text-align: center">Referees</h2>
-			<ul style="list-style-type: square;">
+			<ul id="referees" class="onload" style="list-style-type: square;">
 				<li>
 					David Groover, e:david******@*****.com, t:514-***-****
 				</li>

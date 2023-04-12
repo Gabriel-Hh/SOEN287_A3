@@ -20,6 +20,7 @@ switch ($action) {
         // Format content based element type
         switch ($type) {
             // No formatting needed for div, input, and textarea
+            case 'p':
             case 'div':
             case 'input':
             case 'textarea':
