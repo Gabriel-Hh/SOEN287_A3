@@ -5,6 +5,8 @@
 <head>
 	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<script src="../../js/requests.js"></script>
+	<script src="../../js/onLoad.js"></script>
 	<title>
 		Admin Projects - Gabriel's Website
 	</title>
@@ -47,10 +49,13 @@
 			<p>
 				<label for="projects">My Projects</label>
 				<br/>
+				<span>List one project per line.</span>
+				<br/>
 				<textarea 
-				id="projects" 
+				id="projects"
+				class="onload" 
 				name="projects" 
-				rows="30" cols="80"
+				rows="15" cols="70"
 				></textarea>
 			</p>
 

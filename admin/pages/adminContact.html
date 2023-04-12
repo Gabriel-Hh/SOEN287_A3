@@ -5,6 +5,8 @@
 <head>
 	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<script src="../../js/requests.js"></script>
+	<script src="../../js/onLoad.js"></script>
 	<title>
 		Admin Contact - Gabriel's Website
 	</title>
@@ -61,6 +63,15 @@
 		<input type="file" id="file_picker"/>
 		<br/>
 		<br/>
+		<!-- Message Instructions -->
+		<label for="contact_instructions">Contact Instructions</label>
+		<br/>
+		<textarea
+			id="contact_instructions"
+			class="onload"
+			rows="5" cols="80"
+		></textarea>
+		
 		<form onsubmit="return readMessage(event)" action="#">
 			<input type="submit" value="Read Message"/>
 		</form>

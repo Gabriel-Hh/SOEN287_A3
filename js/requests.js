@@ -8,28 +8,31 @@ function getContent(element) {
     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
         .then(response => response.text())
         .then(content => {
-            element.innerHTML = content;
+            if (contentType === 'input'){
+                element.value = content;
+            }else
+                element.innerHTML = content;
         })
         .catch(error => {
             console.error('Error fetching content:', error);
         });
 }
+// NOT NECESSARY, USE getContent() instead
+// Get content for admin site 
+// function getContentForAdmin(element) {
+//     const elementId = element.id;
+//     const filename = elementId + '.txt';
+//     const contentType = element.tagName.toLowerCase();
 
-// Get content for admin site
-function getContentForAdmin(element) {
-    const elementId = element.id;
-    const filename = elementId + '.txt';
-    const contentType = element.tagName.toLowerCase();
-
-    fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
-        .then(response => response.text())
-        .then(content => {
-            element.value = content;
-        })
-        .catch(error => {
-            console.error('Error fetching content:', error);
-        });
-}
+//     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
+//         .then(response => response.text())
+//         .then(content => {
+//             element.value = content;
+//         })
+//         .catch(error => {
+//             console.error('Error fetching content:', error);
+//         });
+// }
 
 function updateContent(elementId) {
     const input = document.getElementById(elementId);

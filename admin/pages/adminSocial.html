@@ -5,6 +5,8 @@
 <head>
 	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<script src="../../js/requests.js"></script>
+	<script src="../../js/onLoad.js"></script>
 	<title>
 		Admin Social - Gabriel's Website
 	</title>
@@ -44,7 +46,8 @@
 
 	<div class="content">
 		<br/>
-		<form onsubmit="return submitSocial(event)" action="#">
+		<br/>
+		<!-- <form onsubmit="return submitSocial(event)" action="#">
 			<p>
 				<label for="social1">Social Link 1</label>
 				<br/>
@@ -62,7 +65,17 @@
 			</p>
 
 			<input type="submit" value="Submit"/>
-		</form>
+		</form> -->
+
+		<!-- Social Map -->
+		<label for="social_map">Social Links</label>
+		<br/>
+		<textarea 
+			id="social_map" 
+			class="onload"
+			rows="10" cols="50"
+		></textarea>
+		<br/>
 		<br/>
 		<br/>
 	</div>
