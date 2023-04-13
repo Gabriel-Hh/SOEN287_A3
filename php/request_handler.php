@@ -36,8 +36,6 @@ switch ($action) {
                 echo getDataDefinitionContent($file);
                 break;
 
-            // Add more cases for other content types (ul, dl, etc.)
-
             default:
                 http_response_code(400);
                 echo 'Invalid content type :' . $type;
@@ -48,7 +46,7 @@ switch ($action) {
     //GET request: revert content
     case 'revert':
         $file = isset($_GET['file']) ? $_GET['file'] : '';
-        echo revertContent($file);
+        revertContent($file);
         break;
 
     //POST request: update content
