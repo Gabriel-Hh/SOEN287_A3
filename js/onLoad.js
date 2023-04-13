@@ -1,14 +1,14 @@
 
 // Loads the content of the dynamic-content elements for the public and admin site. 
-// Makes buttons for all admin textareas.
 document.addEventListener('DOMContentLoaded', () => {
     const elements = document.getElementsByClassName('onload');
-    elements.forEach(element => {
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
         getContent(element);
         if (element.tagName.toLowerCase() === 'textarea') {
             createButtons(element);
         }
-    });
+    }
 });
 
 /* Create three buttons for each dynamic-content element that is a text area. 
@@ -50,7 +50,7 @@ function createButtons(element) {
     revertButton.classList.add('center');
     revertButton.classList.add('space-between');
     revertButton.innerHTML = 'Revert';
-    revertButton.addEventListener('click', () => revertContent(element));
+    revertButton.addEventListener('click', () => revertContent(elementId));
     buttonContainer.appendChild(updateButton);
     buttonContainer.appendChild(cancelButton);
     buttonContainer.appendChild(revertButton);
