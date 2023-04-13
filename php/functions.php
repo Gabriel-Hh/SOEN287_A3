@@ -147,4 +147,37 @@ function getSkillsContent($filename){
 
     return $output;
 }
+
+// Get Social formatted content from file - One link per line
+function getSocialContent($filename){
+    $filepath = "../text_files/$filename";
+    checkFileExists($filepath);
+    
+    
+    //Load content and create an array of list items, split by "//"
+    $content = file_get_contents($filepath);
+    $listArray = explode("\n", $content);
+
+    // Check length of list
+    if (count($listArray) !== 9) {
+        http_response_code(400);
+        return "Error: Invalid content format in file: ".$filename . " - 9 items required";
+    }
+
+    $output = '';
+    $i = 0;
+    //Format content for image map
+    $output .= '<area alt="facebook" shape="rect" coords="0,0,90,90" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="twitter" shape="rect" coords="105,0,195,90" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="google+" shape="rect" coords="210,0,300,90" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="instagram" shape="rect" coords="0,105,90,195" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="dribbble" shape="rect" coords="105,105,195,195" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="linkedin" shape="rect" coords="210,105,300,195" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="whatsapp" shape="rect" coords="0,210,90,300" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="youtube" shape="rect" coords="105,210,195,300" href="'. $listArray[$i++] . '" target="_blank"/>';
+    $output .= '<area alt="snapchat" shape="rect" coords="210,210,300,300" href="'. $listArray[$i++] . '" target="_blank"/>';
+    
+    return $output;
+}
+
 ?>

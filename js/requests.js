@@ -6,7 +6,7 @@ function getContent(element) {
     let contentType = element.tagName.toLowerCase();
     
     //Check elementId for special Formatting
-     if (!(contentType === 'textarea')) {//Dynamic textarea for admin only, don't format.
+     if (!(contentType === 'textarea')) {//Dynamic textarea is for admin site only, don't format.
         switch(elementId) {
             case 'education':
                 contentType = 'educationContent';
@@ -16,6 +16,9 @@ function getContent(element) {
                 break;
             case 'skills':
                 contentType = 'skillsContent';
+                break;
+            case 'social':
+                contentType = 'socialContent';
                 break;
         };
     };

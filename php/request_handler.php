@@ -19,20 +19,14 @@ switch ($action) {
 
         // Format content based element type
         switch ($type) {
-            // No formatting needed for div, input, and textarea
-            case 'p':
-            case 'div':
-            case 'input':
-            case 'textarea':
-                echo getContent($file);
-                break;
             
-                // List formatting for ol and ul
+            // List formatting for ol and ul
             case 'ol':
             case 'ul':
                 echo getListContent($file);
                 break;
-           
+            
+            //Custom content formats
             case 'educationContent':
                 echo getSPIContent($file, "p");
                 break;
@@ -45,14 +39,14 @@ switch ($action) {
                 echo getSkillsContent($file);
                 break;
 
-            case 'dl': //Admin only
+            case 'socialContent':
+                echo getSocialContent($file);
+                break;
+            
+            // Unformatted for p, div, and admin site (textarea)
+            default:
                 echo getContent($file);
                 break;
-
-            default:
-                http_response_code(400);
-                echo 'Invalid content type :' . $type;
-                break;  
         }
         break; 
 

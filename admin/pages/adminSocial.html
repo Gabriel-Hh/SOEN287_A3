@@ -11,20 +11,6 @@
 		Admin Social - Gabriel's Website
 	</title>
 
-	<script type="text/javascript">
-
-		function submitSocial(event){
-			event.preventDefault();
-			
-			elementValue2File("social1");
-			elementValue2File("social2");
-			elementValue2File("social3");
-			return false;
-		}
-	</script>
-
-	<script type="text/javascript" src="elementValue2File.js"></script>
-
 </head>
 <body>
 	<!-- Top banner -->
@@ -47,31 +33,12 @@
 	<div class="content">
 		<br/>
 		<br/>
-		<!-- <form onsubmit="return submitSocial(event)" action="#">
-			<p>
-				<label for="social1">Social Link 1</label>
-				<br/>
-				<input id="social1" type="text" />
-			</p>
-			<p>
-				<label for="social2">Social Link 2</label>
-				<br/>
-				<input id="social2" type="text" />
-			</p>
-			<p>
-				<label for="social3">Social Link 3</label>
-				<br/>
-				<input id="social3" type="text" />
-			</p>
-
-			<input type="submit" value="Submit"/>
-		</form> -->
 
 		<!-- Social Map -->
-		<label for="social_map">Social Links</label>
+		<label for="social">Social Links</label>
 		<br/>
 		<textarea 
-			id="social_map" 
+			id="social" 
 			class="onload"
 			rows="10" cols="50"
 		></textarea>
