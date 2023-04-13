@@ -35,6 +35,9 @@ switch ($action) {
             case 'dl':
                 echo getDataDefinitionContent($file);
                 break;
+            case 'educationContent':
+                echo getEducationContent($file);
+                break;
 
             default:
                 http_response_code(400);

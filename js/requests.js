@@ -3,7 +3,16 @@
 function getContent(element) {
     const elementId = element.id;
     const filename = elementId + '.txt';
-    const contentType = element.tagName.toLowerCase();
+    let contentType = element.tagName.toLowerCase();
+    
+    //Check elementId for special Formatting
+    switch(elementId) {
+        case 'education':
+            contentType = 'educationContent';
+            break;
+        default:
+            break;
+    }
 
     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
         .then(response => {
