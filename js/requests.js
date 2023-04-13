@@ -6,13 +6,16 @@ function getContent(element) {
     let contentType = element.tagName.toLowerCase();
     
     //Check elementId for special Formatting
-    switch(elementId) {
-        case 'education':
-            contentType = 'educationContent';
-            break;
-        default:
-            break;
-    }
+     if (!(contentType === 'textarea')) {//Dynamic textarea for admin only, don't format.
+        switch(elementId) {
+            case 'education':
+                contentType = 'educationContent';
+                break;
+            case 'work_experience':
+                contentType = 'workExperienceContent';
+                break;
+        };
+    };
 
     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
         .then(response => {

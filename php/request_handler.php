@@ -31,12 +31,14 @@ switch ($action) {
             case 'ul':
                 echo getListContent($file);
                 break;
-            // Data definition formatting
-            case 'dl':
-                echo getDataDefinitionContent($file);
-                break;
             case 'educationContent':
-                echo getEducationContent($file);
+                echo getSPIContent($file, "p");
+                break;
+            case 'workExperienceContent':
+                echo getSPIContent($file, "li");
+                break;
+            case 'dl': //Admin only
+                echo getContent($file);
                 break;
 
             default:

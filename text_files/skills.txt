@@ -1,3 +1,19 @@
-Applications,• Microsoft Office: Word - Excel - PPT,• Mathematica,• Maple,• XAMPP
-Programming Languages,• Java,• Python,• SQL,• PHP,• HTML,• CSS,• JavaScript
-Languages,• English (Native),• French (Advanced),• Mandarin (Beginner)
+Applications;;
+• Microsoft Office: Word - Excel - PPT;;
+• Mathematica;;
+• Maple;;
+• XAMPP;;
+//
+Programming Languages;;
+• Java;;
+• Python;;
+• SQL;;
+• PHP;;
+• HTML;;
+• CSS;;
+• JavaScript;;
+//
+Languages;;
+• English (Native);;
+• French (Advanced);;
+• Mandarin (Beginner);;

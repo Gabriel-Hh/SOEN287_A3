@@ -10,24 +10,8 @@
 	<title>
 		Admin Resume - Gabriel's Website
 	</title>
-
-	<script type="text/javascript">
-
-		function submitResume(event){
-			event.preventDefault();
-			
-			elementValue2File("education");
-			elementValue2File("skills");
-			elementValue2File("awards");
-			elementValue2File("work");
-			elementValue2File("referees");
-			return false;
-		}
-	</script>
-
-	<!-- <script type="text/javascript" src="elementValue2File.js"></script> -->
-
 </head>
+
 <body>
 	<!-- Top banner -->
 	<div class="banner">
@@ -52,11 +36,13 @@
 			<!-- Education -->
 			<p>
 				<label for="education">Educational Qualifications</label>
-				<br/>
+				<p>
+					List as: Degree;;Period;;Institution;;(+Subpoints)//
+				</p>
 				<textarea 
 				id="education" 
 				class="onload"
-				rows="10" cols="80"
+				rows="15" cols="80"
 				></textarea>
 			</p>
 			<p>
@@ -81,12 +67,14 @@
 				></textarea>
 			</p>
 			<p>
-				<label for="work">Work Experience</label>
-				<br/>
+				<label for="work_experience">Work Experience</label>
+				<p>
+					List as: Title;;Period;;Company;;(+Subpoints)//
+				</p>
 				<textarea 
-				id="work" 
-				name="work" 
-				rows="30" 
+				id="work_experience" 
+				class="onload"
+				rows="20" 
 				cols="80"
 				></textarea>
 			</p>

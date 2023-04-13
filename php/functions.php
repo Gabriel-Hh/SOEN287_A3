@@ -62,8 +62,8 @@ function updateContent($filename, $content) {
 
 // SPECIALIZED CONTENT FORMATTING FUNCTIONS
 
-//Get formatted education content from file
-function getEducationContent($filename) {
+//Get formatted content from file for format Subject;;Period;;Institution;; (+Bullet Points)
+function getSPIContent($filename, $wrapperType) {
     $filepath = "../text_files/$filename";
     
     //Check if file exists
@@ -80,6 +80,8 @@ function getEducationContent($filename) {
     //Format content as special data definition list
     $output = '';
     for ($i = 0; $i < count($listArray); $i++) {
+        $output .= "<".$wrapperType.">";
+
         // Split list item into array of items, split by ";;"
         $listItem = explode(";;", $listArray[$i]);
         
@@ -89,17 +91,18 @@ function getEducationContent($filename) {
             return "Error: Invalid content format in file: ".$filename." at item: ".$i;
         }
         $j = 0;
-        // First item is the title
+        // First item is the Main Subject
         $output .= "<dt><em><b>" . $listItem[$j++] . "</b>";
-        // Second item is the period
+        // Second item is the Period
         $output .= "<span style='float: right;'>" . $listItem[$j++] . "</span><br/>";
-        // Third item is the institution / location
+        // Third item is the Institution / location
         $output .= $listItem[$j++] . "</em></dt>";
         
         // (OPTIONAL) Any remaining items are bullet points
         while ( $j < count($listItem)){
             $output .= "<dd style='width: 70%'>" . $listItem[$j++] . "</dd>";
         };
+        $output .= "</".$wrapperType.">";
     };
 
     return $output;
