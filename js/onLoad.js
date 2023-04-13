@@ -1,14 +1,8 @@
 
-// // Loads the content of the dynamic-content elements 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const elements = document.querySelectorAll('.onload');
-//     elements.forEach(element => getContent(element));
-// });
-
 // Loads the content of the dynamic-content elements for the public and admin site. 
 // Makes buttons for all admin textareas.
 document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.onload');
+    const elements = document.getElementsByClassName('onload');
     elements.forEach(element => {
         getContent(element);
         if (element.tagName.toLowerCase() === 'textarea') {
