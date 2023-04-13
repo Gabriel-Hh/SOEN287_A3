@@ -1,20 +1,29 @@
 <?php
+
+//Check that file exists or return error
+function checkfileExists($filepath) {
+    if (!(file_exists($filepath))) {
+        http_response_code(400);
+        return "Error: File does not exist: ".$filepath;
+    }
+}
+
 // Get unformatted content from file
 function getContent($filename) {
     $filepath = "../text_files/$filename";
-    if (file_exists($filepath)) {
-        $content = file_get_contents($filepath);
-        return $content;
-    } else {
-        http_response_code(400);
-        return "Error: File does not exist: ". $filename;
-    }
+    checkFileExists($filepath);
+
+    $content = file_get_contents($filepath);
+    return $content;
+   
 }
 
 
 // Get list formatted content from file
 function getListContent($filename) {
     $filepath = "../text_files/$filename";
+    checkFileExists($filepath);
+
     $content = file_get_contents($filepath);
     //Create an array of list items, split by newlines
     $listArray = explode("\n", $content);
@@ -31,33 +40,31 @@ function getListContent($filename) {
 function revertContent($filename) {
     $filepath = "../text_files/$filename";
     $backupPath = "../text_files/$filename".".bak";
-    if (file_exists($backupPath)) {
-        // Copy backup file into current file
-        copy($backupPath, $filepath);
-        return "Content reverted successfully."; 
-    } else {
-        http_response_code(400);
-        echo "Error: Backup file does not exist.";
-    }
+    checkFileExists($filepath);
+    checkFileExists($backupPath);
+    
+    // Copy backup file into current file
+    copy($backupPath, $filepath);
+    return "Content reverted successfully."; 
+
 }
 
 // Update content in file
 function updateContent($filename, $content) {
     $filepath = "../text_files/$filename";
     $backupPath = "../text_files/$filename".".bak";
+    checkFileExists($filepath);
+    checkFileExists($backupPath);
     
-    if (file_exists($filepath)) {
-        // Update Backup file
-        copy($filepath, $backupPath);
-        // Overwrite new content to file
-        $file = fopen($filepath, 'w');
-        fwrite($file, $content);
-        fclose($file);
-        return $content;
-    } else {
-        http_response_code(400);
-        return "Error: File does not exist.";
-    }
+    // Update Backup file
+    copy($filepath, $backupPath);
+    
+    // Overwrite new content to file
+    $file = fopen($filepath, 'w');
+    fwrite($file, $content);
+    fclose($file);
+    return $content;
+
 }
 
 // SPECIALIZED CONTENT FORMATTING FUNCTIONS
@@ -65,12 +72,7 @@ function updateContent($filename, $content) {
 //Get formatted content from file for format Subject;;Period;;Institution;; (+Bullet Points)
 function getSPIContent($filename, $wrapperType) {
     $filepath = "../text_files/$filename";
-    
-    //Check if file exists
-    if(!file_exists($filepath)) {
-        http_response_code(400);
-        return "Error: File does not exist: ".$filename;
-    }
+    checkFileExists($filepath);
     
     //Load content and create an array of list items, split by "//"
     $content = file_get_contents($filepath);
@@ -103,6 +105,44 @@ function getSPIContent($filename, $wrapperType) {
             $output .= "<dd style='width: 70%'>" . $listItem[$j++] . "</dd>";
         };
         $output .= "</".$wrapperType.">";
+    };
+
+    return $output;
+}
+
+// Get Skills formatted content from file - Category;;Skill;;Skill;;Skill...//
+function getSkillsContent($filename){
+    $filepath = "../text_files/$filename";
+    checkFileExists($filepath);
+    
+    
+    //Load content and create an array of list items, split by "//"
+    $content = file_get_contents($filepath);
+    $listArray = explode("//", $content);
+
+    
+    //Format content as special data definition list
+    $output = '';
+    for ($i = 0; $i < count($listArray); $i++) {
+        $output .= "<div><dl>";
+
+        // Split list item into array of items, split by ";;"
+        $listItem = explode(";;", $listArray[$i]);
+        
+        //Check lenght of list item
+        if (count($listItem) < 1) {
+            http_response_code(400);
+            return "Error: Invalid content format in file: ".$filename." at item: ".$i;
+        }
+
+        $j = 0;
+        // First item is the Category
+        $output .= "<dt><em>" . $listItem[$j++] . "</em></dt>";
+        // Other items are the Skill
+        while ( $j < count($listItem)){
+            $output .= "<dd>" . $listItem[$j++] . "</dd>";
+        };
+        $output .= "</div></dl>";
     };
 
     return $output;

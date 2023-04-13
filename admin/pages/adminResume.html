@@ -32,12 +32,12 @@
 
 	<div class="content">
 		<br/>
-		<form onsubmit="return submitResume(event)" action="#">
+		<!-- <form onsubmit="return submitResume(event)" action="#"> -->
 			<!-- Education -->
 			<p>
 				<label for="education">Educational Qualifications</label>
 				<p>
-					List as: Degree;;Period;;Institution;;(+Subpoints)//
+					List as: Degree;;Period;;Institution;;Optional Subpoints;;...//
 				</p>
 				<textarea 
 				id="education" 
@@ -47,17 +47,20 @@
 			</p>
 			<p>
 				<label for="skills">Skill Set</label>
-				<br/>
+				<p>
+					List as: Category;;Skill;;Skill;;...//
+				</p>
 				<textarea 
 				id="skills" 
-				name="skills" 
-				rows="20" 
+				class="onload"
+				rows="25" 
 				cols="80"
 				></textarea>
 			</p>
 			<!-- Awards -->
 			<p>
 				<label for="awards">Award / Recognitions</label>
+				<span>- One per line</span>
 				<br/>
 				<textarea 
 				id="awards" 
@@ -69,7 +72,7 @@
 			<p>
 				<label for="work_experience">Work Experience</label>
 				<p>
-					List as: Title;;Period;;Company;;(+Subpoints)//
+					List as: Title;;Period;;Company;;Optional Subpoints;;...//
 				</p>
 				<textarea 
 				id="work_experience" 
@@ -81,6 +84,7 @@
 			<!-- Referees -->
 			<p>
 				<label for="referees">Referees</label>
+				<span>- One per line</span>
 				<br/>
 				<textarea 
 				id="referees" 
@@ -90,8 +94,8 @@
 				></textarea>
 			</p>
 
-			<input type="submit" value="Submit"/>
-		</form>
+			<!-- <input type="submit" value="Submit"/> -->
+		<!-- </form> -->
 		<br/>
 		<br/>
 	</div>

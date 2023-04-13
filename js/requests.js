@@ -14,6 +14,9 @@ function getContent(element) {
             case 'work_experience':
                 contentType = 'workExperienceContent';
                 break;
+            case 'skills':
+                contentType = 'skillsContent';
+                break;
         };
     };
 

@@ -26,17 +26,25 @@ switch ($action) {
             case 'textarea':
                 echo getContent($file);
                 break;
-            // List formatting for ol and ul
+            
+                // List formatting for ol and ul
             case 'ol':
             case 'ul':
                 echo getListContent($file);
                 break;
+           
             case 'educationContent':
                 echo getSPIContent($file, "p");
                 break;
+            
             case 'workExperienceContent':
                 echo getSPIContent($file, "li");
                 break;
+
+            case 'skillsContent':
+                echo getSkillsContent($file);
+                break;
+
             case 'dl': //Admin only
                 echo getContent($file);
                 break;

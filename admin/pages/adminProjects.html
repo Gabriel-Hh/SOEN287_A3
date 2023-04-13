@@ -11,18 +11,6 @@
 		Admin Projects - Gabriel's Website
 	</title>
 
-	<script type="text/javascript">
-
-		function submitProjects(event){
-			event.preventDefault();
-			
-			elementValue2File("projects");
-
-			return false;
-		}
-	</script>
-
-	<script type="text/javascript" src="elementValue2File.js"></script>
 
 </head>
 <body>
@@ -48,8 +36,7 @@
 		<form onsubmit="return submitProjects(event)" action="#">
 			<p>
 				<label for="projects">My Projects</label>
-				<br/>
-				<span>List one project per line.</span>
+				<span>- One per line</span>
 				<br/>
 				<textarea 
 				id="projects"
