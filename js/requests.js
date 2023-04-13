@@ -1,25 +1,32 @@
 
-// Get general formatted text content for public site
+// Get properly formatted text content for website
 function getContent(element) {
     const elementId = element.id;
     const filename = elementId + '.txt';
     const contentType = element.tagName.toLowerCase();
 
     fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
-        .then(response => response.text())
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Error fetching content');
+            }
+        })
         .then(content => {
-            if (contentType === 'input' || contentType === 'textarea'){
+            if (contentType === 'input' || contentType === 'textarea') {
                 element.value = content;
-            }else
+            } else {
                 element.innerHTML = content;
+            }
         })
         .catch(error => {
-            console.error('Error fetching content:', error);
+            alert('Error fetching content: ' + (error ? error.message : filename));
         });
 }
 
+// Update content file.
 function updateContent(element) {
-    // const element = document.getElementById(elementId);
     const filename = element.id + '.txt';
     const content = element.value;
 
@@ -30,46 +37,34 @@ function updateContent(element) {
         },
         body: `action=update&file=${filename}&content=${encodeURIComponent(content)}`
     })
-        .then(response => {
+        .then(response => response.text().then(text => {
             if (response.ok) {
                 alert('Content updated successfully');
+                getContent(element);
             } else {
-                alert('Error updating content');
+                alert('Error updating content: ' + text);
             }
-        })
+        }))
         .catch(error => {
             alert('Error updating content:', error);
         });
 }
 
+//Revert content file
 function revertContent(element) {
     const filename = element.id + '.txt';
 
     fetch(`../../php/request_handler.php?action=revert&file=${filename}`)
-        .then(response => response.text(),
-            alert(response))
-        .then(result => {
-            alert(result);
-            getContent(element);
-        })
+        .then(response => response.text().then(text => {
+            if (response.ok) {
+                console.log(text);
+                getContent(element);
+            } else {
+                alert('Error reverting content: ' + text);
+            }
+        }))
         .catch(error => {
             alert('Error reverting content:', error);
         });
 }
 
-// NOT NECESSARY, USE getContent() instead
-// Get content for admin site 
-function getContentForAdmin(element) {
-    const elementId = element.id;
-    const filename = elementId + '.txt';
-    const contentType = element.tagName.toLowerCase();
-
-    fetch(`../../php/request_handler.php?action=get&file=${filename}&type=${contentType}`)
-        .then(response => response.text())
-        .then(content => {
-            element.value = content;
-        })
-        .catch(error => {
-            console.error('Error fetching content:', error);
-        });
-}

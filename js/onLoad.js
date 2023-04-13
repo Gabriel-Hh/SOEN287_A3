@@ -32,7 +32,11 @@ function createButtons(element) {
     updateButton.classList.add('center');
     updateButton.classList.add('space-between');
     updateButton.innerHTML = 'Update';
-    updateButton.addEventListener('click', () => updateContent(element));
+    // updateButton.addEventListener('click', () => updateContent(element));
+    updateButton.addEventListener('click', event => {
+        event.preventDefault();
+        updateContent(element);
+    });
     const cancelButton = document.createElement('button');
     cancelButton.classList.add('cancel');
     cancelButton.classList.add('orange');
@@ -41,7 +45,11 @@ function createButtons(element) {
     cancelButton.classList.add('center');
     cancelButton.classList.add('space-between');
     cancelButton.innerHTML = 'Cancel';
-    cancelButton.addEventListener('click', () => getContent(element));
+    // cancelButton.addEventListener('click', () => getContent(element));
+    cancelButton.addEventListener('click', event => {
+        event.preventDefault();
+        getContent(element);
+    });
     const revertButton = document.createElement('button');
     revertButton.classList.add('revert');
     revertButton.classList.add('red');
@@ -50,7 +58,11 @@ function createButtons(element) {
     revertButton.classList.add('center');
     revertButton.classList.add('space-between');
     revertButton.innerHTML = 'Revert';
-    revertButton.addEventListener('click', () => revertContent(elementId));
+    // revertButton.addEventListener('click', () => revertContent(element));
+    revertButton.addEventListener('click', event => {
+        event.preventDefault();
+        revertContent(element);
+    });
     buttonContainer.appendChild(updateButton);
     buttonContainer.appendChild(cancelButton);
     buttonContainer.appendChild(revertButton);
