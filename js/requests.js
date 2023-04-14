@@ -116,35 +116,12 @@ function contactFormSubmit() {
         alert('Error sending message: ' + error.message);
     });
 }
-
-// // Display messages in admin site
-// function displayMessages() {
-//     const container = document.getElementById('message_container');
-
-//     fetch("../../php/request_handler.php?action=getMessages")
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.text();
-//             } else {
-//                 throw new Error("Error fetching messages");
-//             }
-//         })
-//         .then(content => {
-//             container.innerHTML = content;
-//         })
-//         .catch(error => {
-//             alert("Error fetching messages:", error.message);
-//         });
-// }
-
+// Display messages on admin page
 function displayMessages() {
     const container = document.getElementById('messages_container');
     
     fetch("../../php/request_handler.php?action=getMessages")
         .then(response => {
-            console.log('Response status:', response.status); // Log response status
-            console.log('Response text:', response.statusText); // Log response text
-            
             if (response.ok) {
                 return response.text();
             } else {
@@ -155,8 +132,47 @@ function displayMessages() {
             container.innerHTML = content;
         })
         .catch(error => {
-            console.log('Error:', error.message); // Log error message
             alert("Error fetching messages:", error.message);
         });
 }
+//Process login
+function processLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    validateLogin(username, password)
+        .then(isValid => {
+            if (isValid) {
+                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('password', password);
+                sessionStorage.setItem('login_time', Date.now()); //absolute (ms) since reference
+                sessionStorage.setItem('login_user_agent', navigator.userAgent);
+
+                window.location.href = '../../admin/pages/adminIndex.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        })
+        .catch(error => {
+            alert('Error validating credentials:', error);
+        });
+}
+
+// Check the username and password
+function validateLogin(username, password) {
+    return new Promise((resolve, reject) => {
+        fetch(`../../php/request_handler.php?action=validateLogin&username=${username}&password=${password}`)
+            .then(response => {
+                if (response.ok) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
 

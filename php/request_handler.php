@@ -72,11 +72,22 @@ switch ($action) {
         echo saveMessage($name, $email, $phone, $message);
         break;
     
-        //GET request: get messages    
+    //GET request: get messages    
     case "getMessages":
         echo getMessages();
         break;
-        
+    
+    // GET request: validate Login
+    case 'validateLogin':
+        $username = $_GET['username'];
+        $password = $_GET['password'];
+        if (validateLogin($username, $password)) {
+            http_response_code(200);
+        } else {
+            http_response_code(401); //Unauthorized user status code
+        }
+        break;
+
     default:
         http_response_code(400);
         echo 'Invalid action';

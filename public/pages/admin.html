@@ -8,6 +8,8 @@
 		content="charset=UTF-8, width=device-width, initial-scale=1"
 	/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<script src="../../js/requests.js"></script>
+	<script src="../../js/onLoad.js"></script>
 	<title>
 		Admin - Gabriel's Website
 	</title>
@@ -32,6 +34,7 @@
 
 <!-- Rest of webpage -->
 	<div class="content">
+		
 		<!-- HIDDEN -->
 		<div class="hidden" style="background-color: yellow;">
 			<p>
@@ -46,40 +49,26 @@
 		</div>
 
 		<h3><u>Admin Portal</u></h3>
-		<!-- <p>
-			Log-in to:
-		 </p>
-		<ul>
-			<li>
-				Access website source files
-			</li>
-			<li>
-				Test out my Database UI 
-			</li>
-		</ul>  -->
 		<p> 
-			Use username: 'guest' for access
+			Use username: 'guest' password: 'pass' for access
 		</p>
-		<form id="admin_form" action="">
+		<form id="login_form" onsubmit="event.preventDefault(); processLogin()">
 			<table id="admin_table" style="width:180px; text-align: justify;">
 				<tr><td>
-				<label for="admin_uname">Username</label>
-				<input type="text" id="admin_uname"/>
-			
+					<label for="username">Username</label>
+					<input type="text" id="username"/>
 				</td></tr>
+
 				<tr><td>
-				<label for="admin_pass">Password</label>
-				<input type="password" id="admin_pass"/>
-			
+					<label for="password">Password</label>
+					<input type="password" id="password"/>
 				</td></tr>
+
 				<tr style="text-align: center;"><td>
-				<input type="button" value="Submit"/>
+					<input type="submit" value="Submit"/>
 				</td></tr>
 			</table>
 		</form>
-		<!-- <p style="color: red">
-			(Coming Soon)
-		</p> -->
 
 	</div>
 </body>

@@ -228,6 +228,27 @@ function getMessages() {
     return $output;
 }
 
+function validateLogin($username, $password) {
+    $userNamePath = "../text_files/usernames.txt";
+    $passwordPath = "../text_files/passwords.txt";
+    checkfileExists($userNamePath);
+    checkfileExists($passwordPath);
+    
+    $usernamesContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($userNamePath));
+    $passwordsContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($passwordPath));
+    
+    $usernames = explode("\n", $usernamesContent);
+    $passwords = explode("\n", $passwordsContent);
+
+    //Look for username and password match
+    for ($i = 0; ($i < count($usernames)) && ($i < count($passwords)); $i++) {
+        if ($usernames[$i] === $username && $passwords[$i] === $password) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 
 ?>
