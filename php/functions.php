@@ -210,8 +210,8 @@ function getMessages() {
     $content = file_get_contents($filepath);
     $messages = explode("\n", $content);
     
-    $output = "<label for='messages_container' style='font-size: 14px; font-style: bold;'>Latest Message</label><br/><br/>";
-    $output = "<table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th></tr></thead><tbody>";
+    $output = "<label for='messages_container' style='font-size: 14px; font-style: bold;'>Messages</label><br/><br/>";
+    $output .= "<table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th></tr></thead><tbody>";
     
     foreach ($messages as $message) {
         if (!empty($message)) {
@@ -234,8 +234,8 @@ function validateLogin($username, $password) {
     checkfileExists($userNamePath);
     checkfileExists($passwordPath);
     
-    $usernamesContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($userNamePath));
-    $passwordsContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($passwordPath));
+    $usernamesContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($userNamePath)); // This was a a pain to figure out
+    $passwordsContent = preg_replace('/\r\n|\r|\n/', "\n", file_get_contents($passwordPath)); // Hard to guess the correct line endings present in file.
     
     $usernames = explode("\n", $usernamesContent);
     $passwords = explode("\n", $passwordsContent);
