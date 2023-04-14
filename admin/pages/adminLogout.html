@@ -5,20 +5,12 @@
 <head>
 	<meta name="viewport" content="charset=UTF-8, width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<script src="../../js/requests.js"></script>
+	<script src="../../js/onLoad.js"></script>
 	<title>
 		Admin Logout - Gabriel's Website
 	</title>
 
-	<script type="text/javascript">
-
-		function processLogout(event){
-			event.preventDefault();
-
-			alert('Logged out!');
-			window().sessionStorage.clear();
-		}
-		
-	</script>
 
 </head>
 <body>
@@ -38,10 +30,10 @@
 			</tr>
 		</table>
 	</div>
-
+	<!-- Logout -->
 	<div class="content">
 		<br/>
-		<form onsubmit="processLogout(event)" action="#" style="text-align:center;">
+		<form onsubmit="event.preventDefault(); processLogout()" style="text-align:center;">
 			<input type="submit" value="Logout"/>
 		</form>
 		

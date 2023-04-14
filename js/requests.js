@@ -1,3 +1,5 @@
+//ALL Javascript functions for the website //
+
 
 // Get properly formatted text content for website
 function getContent(element) {
@@ -173,6 +175,17 @@ function validateLogin(username, password) {
                 reject(error);
             });
     });
+}
+
+// Process logout
+function processLogout() {
+    // Clear session storage
+    sessionStorage.clear();
+
+    // Alert and redirect
+    alert("Logout successful!");
+    window.location.href = "../../public/pages/index.html";
+
 }
 
 
