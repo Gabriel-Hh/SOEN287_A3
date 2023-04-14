@@ -33,6 +33,7 @@
 	</div>
 	<div class="content">
 		<br/>
+
 		<!-- HIDDEN -->
 		<div class="hidden" style="background-color: yellow;">
 			<p>
@@ -48,45 +49,57 @@
 				(iv) A message box, using the &lt;textarea&gt; tag, which must be left-aligned with respect to the webpage layout (1 points).
 			</p>
 		</div>
-		<!-- Instructions -->
+
+		<!-- Contact Instructions -->
 		<div id="contact_instructions" class="onload"></div>
 
 		<br/>
-
-		<form id="contact_form" action="c_form_submit.php" style="text-align: left;">
-			
-			<label for="c_name">
+		<!-- Contact Form -->
+		<form id="contact_form" onsubmit="event.preventDefault(), contactFormSubmit();" style="text-align: left;">
+			<label for="name">
 				Name<span style="color: red;">*</span>
 			</label>
 			<br/>
-			<input type="text" name="c_name" id="c_name"/>
+			<input 
+				type="text" 
+				name="name" 
+				required
+				id="contact_name"
+			/>
 			<br/>
-			<label for="c_email">
+			<label for="email">
 				Email<span style="color: red;">*</span>
 			</label>
 			<br/>
-			<input type="text" name="c_email" id="c_email"/>
+			<input 
+				type="text" 
+				name="email" 
+				required 
+				id="contact_email"
+				/>
 			<br/>
-			<label for="c_phone">
+			<label for="phone">
 				Phone
 			</label>
 			<br/>
-			<input type="text" name="c_phone" id="c_phone"/>
-			<!-- HTML 5 
-				<input type="text" name="c_phone" id="c_phone" placeholder="123-456-7899"/> 
-			-->
-			<br/>	
+			<input 
+				type="text" 
+				name="phone" 
+				id="contact_phone"
+			/>
 			<br/>
-			
+			<br/>
 			<div style="text-align: left;">
-				<label for="c_message">
+				<label for="message">
 					Enter your message<span style="color: red;">*</span>
 				</label>
 				<br/>
-				<textarea name="c_message" id="c_message" rows="7" cols="50"></textarea>
-			<!-- HTML 5
-				<textarea name="c_message" placeholder="Enter your message" rows="7" cols="50"></textarea> 
-			-->
+				<textarea 
+					name="message" 
+					id="contact_message" 
+					required 
+					rows="7" cols="50"
+				></textarea>
 				<br/>
 				<br/>
 				<input type="submit" value="Submit"/>

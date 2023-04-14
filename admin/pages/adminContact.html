@@ -11,30 +11,6 @@
 		Admin Contact - Gabriel's Website
 	</title>
 
-	<script type="text/javascript">
-
-		function readMessage(event){
-			event.preventDefault();
-
-			const files = document.getElementById("file_picker");
-			const file = files.files[0];
-
-			const reader = new FileReader();
-			
-			//From : https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsText
-			  reader.addEventListener("load",() => {
-			  	document.getElementById("dmessage").innerHTML = reader.result;
-			  },
-			  false
-			  );
-
-  			if (file) {
-    			reader.readAsText(file);
-  			}
-		}
-
-	</script>
-
 </head>
 <body>
 	<!-- Top banner -->
@@ -57,13 +33,8 @@
 	<div class="content">
 		
 		<br/>
-		<label for="file_picker">Please select message file</label>
-		<br/>
-
-		<input type="file" id="file_picker"/>
-		<br/>
-		<br/>
-		<!-- Message Instructions -->
+		<br/> 
+		<!-- Message Instructions-->
 		<label for="contact_instructions">Contact Instructions</label>
 		<br/>
 		<textarea
@@ -72,16 +43,16 @@
 			rows="5" cols="80"
 		></textarea>
 		
-		<form onsubmit="return readMessage(event)" action="#">
-			<input type="submit" value="Read Message"/>
-		</form>
 		<br/>
+		<br/>
+		<button>Read Messages</button>
 		
 
 		
 		<label for="dmessage" style="font-size: 14px;">Latest Message</label>
 		
-		<p id="dmessage" style="border: 1px solid black; width:70%; padding-top: 20px;"></p>
+		<!-- Messages Container -->
+		<div></div>
 
 		
 

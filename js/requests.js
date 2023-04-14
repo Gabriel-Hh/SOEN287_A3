@@ -86,3 +86,34 @@ function revertContent(element) {
         });
 }
 
+// Submit contact form
+function contactFormSubmit() {
+    const name = document.getElementById('contact_name').value;
+    const email = document.getElementById('contact_email').value;
+    const phone = document.getElementById('contact_phone').value;
+    const message = document.getElementById('contact_message').value;
+
+    fetch('../../php/request_handler.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `action=saveMessage&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}`
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text();
+        } else {
+            throw new Error('Error sending message');
+        }
+    })
+    .then(() => {
+        document.getElementById('contact_form').reset();
+        alert('Message sent!');
+        
+    })
+    .catch(error => {
+        alert('Error sending message: ' + error.message);
+    });
+}
+

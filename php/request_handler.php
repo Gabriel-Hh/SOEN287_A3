@@ -62,7 +62,15 @@ switch ($action) {
         $content = isset($_POST['content']) ? $_POST['content'] : '';
         echo updateContent($file, $content);
         break;
-
+    
+    //POST request: save message
+    case 'saveMessage':
+        $name =  $_POST['name'] ;
+        $email = $_POST['email'] ;
+        $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+        $message = $_POST['message'] ;
+        echo saveMessage($name, $email, $phone, $message);
+        break;
     default:
         http_response_code(400);
         echo 'Invalid action';

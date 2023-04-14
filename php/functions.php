@@ -180,4 +180,26 @@ function getSocialContent($filename){
     return $output;
 }
 
+// PHP: saveMessage function
+function saveMessage($name, $email, $phone, $message) {
+    $filepath = "../text_files/messages.txt";
+    $backupPath = $filepath.".bak";
+
+    // Backup file
+    copy($filepath, $backupPath);
+
+    // Append new message to file
+    $newMessage = "{$name};;{$email};;{$phone};;{$message}\n";
+    $result = file_put_contents($filepath, $newMessage, FILE_APPEND);
+
+    // Return result
+    if ($result === false) {
+        http_response_code(400);
+        return "Error: Unable to save the message.";
+    } else {
+        return "Message saved.";
+    }
+}
+
+
 ?>
