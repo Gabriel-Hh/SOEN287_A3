@@ -11,6 +11,29 @@
 		Admin Contact - Gabriel's Website
 	</title>
 
+	<style>
+		#messages_container table {
+			border-collapse: collapse;
+		}
+
+		#messages_container td {
+			word-break: break-word;
+		}
+	
+		#messages_container tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	
+		#messages_container tr:nth-child(odd) {
+			background-color: #ffffff;
+		}
+	
+		#messages_container th, #messages_container td {
+			padding: 8px;
+			text-align: left;
+			border: 1px solid #ddd;
+		}
+	  </style>
 </head>
 <body>
 	<!-- Top banner -->
@@ -44,15 +67,13 @@
 		></textarea>
 		
 		<br/>
+		<!-- Read Messages Button -->
+		<button onclick="displayMessages()">Read Messages</button>
 		<br/>
-		<button>Read Messages</button>
-		
-
-		
-		<label for="dmessage" style="font-size: 14px;">Latest Message</label>
-		
+		<br/>
+		<br/>
 		<!-- Messages Container -->
-		<div></div>
+		<div id="messages_container" style="max-width: 90%;"></div>
 
 		
 

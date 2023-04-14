@@ -71,6 +71,12 @@ switch ($action) {
         $message = $_POST['message'] ;
         echo saveMessage($name, $email, $phone, $message);
         break;
+    
+        //GET request: get messages    
+    case "getMessages":
+        echo getMessages();
+        break;
+        
     default:
         http_response_code(400);
         echo 'Invalid action';

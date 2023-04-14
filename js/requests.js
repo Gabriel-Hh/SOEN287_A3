@@ -117,3 +117,46 @@ function contactFormSubmit() {
     });
 }
 
+// // Display messages in admin site
+// function displayMessages() {
+//     const container = document.getElementById('message_container');
+
+//     fetch("../../php/request_handler.php?action=getMessages")
+//         .then(response => {
+//             if (response.ok) {
+//                 return response.text();
+//             } else {
+//                 throw new Error("Error fetching messages");
+//             }
+//         })
+//         .then(content => {
+//             container.innerHTML = content;
+//         })
+//         .catch(error => {
+//             alert("Error fetching messages:", error.message);
+//         });
+// }
+
+function displayMessages() {
+    const container = document.getElementById('messages_container');
+    
+    fetch("../../php/request_handler.php?action=getMessages")
+        .then(response => {
+            console.log('Response status:', response.status); // Log response status
+            console.log('Response text:', response.statusText); // Log response text
+            
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error("Error fetching messages");
+            }
+        })
+        .then(content => {
+            container.innerHTML = content;
+        })
+        .catch(error => {
+            console.log('Error:', error.message); // Log error message
+            alert("Error fetching messages:", error.message);
+        });
+}
+

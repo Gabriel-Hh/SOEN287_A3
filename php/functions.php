@@ -179,8 +179,9 @@ function getSocialContent($filename){
     
     return $output;
 }
+// CONTACT FORM FUNCTIONS
 
-// PHP: saveMessage function
+// saveMessage function
 function saveMessage($name, $email, $phone, $message) {
     $filepath = "../text_files/messages.txt";
     $backupPath = $filepath.".bak";
@@ -200,6 +201,33 @@ function saveMessage($name, $email, $phone, $message) {
         return "Message saved.";
     }
 }
+
+// getMessages function - returns html table with messages
+function getMessages() {
+    $filepath = "../text_files/messages.txt";
+    checkfileExists($filepath);
+
+    $content = file_get_contents($filepath);
+    $messages = explode("\n", $content);
+    
+    $output = "<label for='messages_container' style='font-size: 14px; font-style: bold;'>Latest Message</label><br/><br/>";
+    $output = "<table><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th></tr></thead><tbody>";
+    
+    foreach ($messages as $message) {
+        if (!empty($message)) {
+            $messageDetails = explode(";;", $message);
+            
+            if (count($messageDetails) == 4) {
+                $output .= "<tr><td>{$messageDetails[0]}</td><td>{$messageDetails[1]}</td><td>{$messageDetails[2]}</td><td>{$messageDetails[3]}</td></tr>";
+            }
+        }
+    }
+    
+    $output .= "</tbody></table>";
+    
+    return $output;
+}
+
 
 
 ?>
