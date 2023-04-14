@@ -20,7 +20,7 @@ function checkLoginStatus(){
     }
     // Alert and redirect to login page
     alert('Please login to access this page.');
-    window.location.href = '../../public/admin.html';
+    window.location.href = '../../public/pages/admin.html';
     return false;
 }
 
